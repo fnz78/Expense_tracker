@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Light Mode Premium Gradient Background */
+.min-h-screen.bg-\\[\\#f8f9fa\\] {
+  background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 50%, #e0e7ff 100%) !important;
+  background-size: 200% 200% !important;
+  animation: gradientMove 15s ease infinite !important;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Glassmorphism Cards */
+.bg-white {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 20px !important;
+}
+
+/* Gradient Buttons */
+button[type="submit"].bg-gray-900 {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+  color: white !important;
+  border-radius: 16px !important;
+}
+button[type="submit"].bg-gray-900:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%) !important;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+}
+
+/* Inputs Glassmorphism */
+input.bg-gray-50\/50, select.bg-gray-50\/50, input.bg-gray-50, select.bg-gray-50 {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 16px !important;
+}
+input.bg-gray-50\/50:focus, select.bg-gray-50\/50:focus, input.bg-gray-50:focus, select.bg-gray-50:focus {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15), 0 0 15px rgba(168, 85, 247, 0.3) !important;
+}
+
+/* Table rows hover */
+tbody tr {
+  transition: all 0.2s ease-in-out !important;
+}
+tr.hover\:bg-gray-50\/80:hover {
+  background: rgba(255, 255, 255, 0.8) !important;
+  transform: scale(1.005) translateX(4px);
+  box-shadow: -3px 0 0 #a855f7, 0 10px 20px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* --- Smooth Animations & UX --- */
+
+/* Smooth Transitions for Interactive Elements */
+button, input, select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover Lift Effect on Cards */
+.bg-white {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.bg-white:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Global Fade-in & Slide-up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply staggered animation to all cards */
+.bg-white {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered delays for grid children (cards) */
+.grid > div:nth-child(1) { animation-delay: 0.1s; }
+.grid > div:nth-child(2) { animation-delay: 0.2s; }
+.grid > div:nth-child(3) { animation-delay: 0.3s; }
+.grid > div:nth-child(4) { animation-delay: 0.4s; }
+.grid > div:nth-child(5) { animation-delay: 0.5s; }
+.grid > div:nth-child(6) { animation-delay: 0.6s; }
+
+/* Keep utility classes for compatibility */
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* --- Micro-interactions --- */
+
+/* Add Expense Button Pulse */
+@keyframes submitPulse {
+  0% { box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3), 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  70% { box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3), 0 0 0 10px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3), 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes rocketWiggle {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.1); }
+}
+.animate-rocket {
+  animation: rocketWiggle 2s ease-in-out infinite;
+  display: inline-block;
+}
+button[type="submit"].bg-gray-900 {
+  animation: submitPulse 2.5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+button[type="submit"].bg-gray-900:hover {
+  animation: none !important;
+}
+
+/* Smooth Tooltip/Dropdown Animation */
+.group\/tooltip > .absolute {
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, 10px) scale(0.95);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group\/tooltip:hover > .absolute {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+/* Button Click Ripple Effect (CSS Only) */
+button {
+  position: relative;
+  overflow: hidden;
+}
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  pointer-events: none;
+}
+button:active::after {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  transition: 0s;
+}
+button:not(.bg-gray-900)::after {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+/* --- Mobile Responsiveness Enhancements --- */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  button, input, select {
+    min-height: 44px !important;
+  }
+  
+  /* Ensure table is easily scrollable with touch */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+
+  /* Adjust chart heights for smaller screens */
+  .h-48 {
+    height: 220px !important;
+  }
+
+  /* Stack layout adjustments - add some breathing room */
+  .grid {
+    gap: 1rem !important;
+  }
+}
