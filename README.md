@@ -2,6 +2,7 @@
 
 A modern, responsive expense tracking application built with React, Tailwind CSS, and Chart.js.
 
+
 ## Features
 
 - **Dashboard**: View your total expenses, today's spending, monthly spending, and weekly summary at a glance.
